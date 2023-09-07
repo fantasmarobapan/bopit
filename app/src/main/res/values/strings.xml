@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">bop it</string>
+    <string name="app_descripcion">testeo de comando/linea de codigo</string>
+    <string name="app_button1">Directo pa el about</string>
 </resources>
