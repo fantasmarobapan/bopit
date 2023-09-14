@@ -13,11 +13,17 @@ class MainActivity : AppCompatActivity() {
 
 
         val ButtonOkAbout = findViewById<Button>(R.id.aboutbutton)
+        val ButtonOkSetting = findViewById<Button>(R.id.settingbutton)
 
 
         ButtonOkAbout.setOnClickListener{
             val intentAbout = Intent(this, AboutActivity::class.java)
             startActivity(intentAbout)
+        }
+
+        ButtonOkSetting.setOnClickListener{
+            val intentsetting = Intent(this, SettingActivity::class.java)
+            startActivity(intentsetting)
         }
 
 
