@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">bop it</string>
-    <string name="app_descripcion">testeo de comando/linea de codigo</string>
+    <string name="app_descripcion">Esta es la pantalla de informacion de la aplicacion creada por Adolfo Fernandez para el ramo de Dispositivos moviles para ser un esqueleto del videojuego "bot it"</string>
     <string name="button_about">Informacion de la app</string>
     <string name="button_config">Configuracion</string>
     <string name="button_home">Regresar al menu principal</string>
