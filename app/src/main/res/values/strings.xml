@@ -9,4 +9,24 @@
     <string name="five_Seg">5 Segundos</string>
     <string name="seven_Seg">7 Segundos</string>
     <string name="Seg_Actual">Duracion de splash: </string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="player_header">Datos del Jugador</string>
+    <string name="perso_header">Personalizacion del juego</string>
+    <string name="default_header">Administracion general</string>
+
+    <!-- Messages Preferences -->
+    <string name="player_name">Nombre del jugador</string>
+    <string name="point_title">Puntaje mas alto</string>
+
+    <!-- Sync Preferences -->
+    <string name="theme_tittle">Seleccion el tema</string>
+
+    <!-- Mensajes por defecto -->
+    <string name="pregunta_check">¿Volver a valores por defecto?</string>
+    <string name="confirmar_check">¿Seguro?</string>
+
+    <string name="default_name">Usuario</string>
+
 </resources>

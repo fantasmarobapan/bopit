@@ -1,0 +1,13 @@
+<resources>
+
+    <string-array name="Theme_entries">
+        <item>Tema 1</item>
+        <item>Tema 2</item>
+    </string-array>
+
+    <string-array name="Theme_Value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>
