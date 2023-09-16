@@ -6,4 +6,4 @@ La aplicacion posee un splash screen la cual dura 5 segundos que posteriormente 
 ### Links de descarga
 Link del [video]()
 
-Link de la [APK](https://drive.google.com/file/d/1lANLsdUuUOXol9IJmSud3PgdjRzSDV1z/view?usp=sharing)
+Link de la [APK](https://drive.google.com/file/d/1t-mTbZ1peVZ9zNZvus-0ozrupJoWWWz1/view?usp=sharing)
