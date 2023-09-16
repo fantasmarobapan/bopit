@@ -1,5 +1,32 @@
 <resources>
     <string name="app_name">bop it</string>
-    <string name="app_descripcion">testeo de comando/linea de codigo</string>
-    <string name="app_button1">Directo pa el about</string>
+    <string name="app_descripcion">Esta es la pantalla de informacion de la aplicacion creada por Adolfo Fernandez para el ramo de Dispositivos moviles para ser un esqueleto del videojuego "bot it"</string>
+    <string name="button_about">Informacion de la app</string>
+    <string name="button_config">Configuracion</string>
+    <string name="button_home">Regresar al menu principal</string>
+    <string name="splash_name">Adolfo Fernandez Padilla</string>
+    <string name="two_Seg">2 Segundos</string>
+    <string name="five_Seg">5 Segundos</string>
+    <string name="seven_Seg">7 Segundos</string>
+    <string name="Seg_Actual">Duracion de splash: </string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="player_header">Datos del Jugador</string>
+    <string name="perso_header">Personalizacion del juego</string>
+    <string name="default_header">Administracion general</string>
+
+    <!-- Messages Preferences -->
+    <string name="player_name">Nombre del jugador</string>
+    <string name="point_title">Puntaje mas alto</string>
+
+    <!-- Sync Preferences -->
+    <string name="theme_tittle">Seleccion el tema</string>
+
+    <!-- Mensajes por defecto -->
+    <string name="pregunta_check">¿Volver a valores por defecto?</string>
+    <string name="confirmar_check">¿Seguro?</string>
+
+    <string name="default_name">Usuario</string>
+
 </resources>
