@@ -5,4 +5,5 @@ La aplicacion posee un splash screen la cual dura 5 segundos que posteriormente 
 - En la pantalla de configuraciones posee 3 botones para cambiar la duracion del splash screen a 2 segundo, 5 segundos y 8 segundos
 ### Links de descarga
 Link del [video]()
-Link de la [APK](https://drive.google.com/file/d/1lANLsdUuUOXol9IJmSud3PgdjRzSDV1z/view?usp=sharing
+
+Link de la [APK](https://drive.google.com/file/d/1lANLsdUuUOXol9IJmSud3PgdjRzSDV1z/view?usp=sharing)
