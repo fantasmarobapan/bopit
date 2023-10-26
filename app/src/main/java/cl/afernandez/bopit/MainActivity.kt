@@ -16,20 +16,26 @@ class MainActivity : AppCompatActivity() {
         val ButtonOkAbout = findViewById<Button>(R.id.aboutbutton)
         val ButtonOkSetting = findViewById<Button>(R.id.settingbutton)
         val ButtonTestMedia = findViewById<Button>(R.id.testmediabutton)
+        val ButtonTestTouchEvent = findViewById<Button>(R.id.toucheventbutton)
 
-        ButtonOkAbout.setOnClickListener{
+        ButtonOkAbout.setOnClickListener {
             val intentAbout = Intent(this, AboutActivity::class.java)
             startActivity(intentAbout)
         }
 
-        ButtonOkSetting.setOnClickListener{
-            val intentsetting = Intent(this, SettingsActivity::class.java)
-            startActivity(intentsetting)
+        ButtonOkSetting.setOnClickListener {
+            val intentSetting = Intent(this, SettingsActivity::class.java)
+            startActivity(intentSetting)
         }
 
         ButtonTestMedia.setOnClickListener {
             val intentTestMedia = Intent(this, SoundTestActivity::class.java)
             startActivity(intentTestMedia)
+        }
+
+        ButtonTestTouchEvent.setOnClickListener {
+            val intentTouchEvent = Intent(this, TouchEventActivity::class.java)
+            startActivity(intentTouchEvent)
         }
 
     }

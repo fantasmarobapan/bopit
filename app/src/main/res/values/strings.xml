@@ -33,5 +33,6 @@
     <string name="moreSpeed">Mas rapido</string>
     <string name="lessSpeed">Mas lento</string>
     <string name="testMedia">Zona de prueba de sonido</string>
+    <string name="testTouchEvent">Zona de prueba de TouchEvent</string>
 
 </resources>
