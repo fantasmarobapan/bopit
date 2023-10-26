@@ -8,8 +8,6 @@
     <string name="two_Seg">2 Segundos</string>
     <string name="five_Seg">5 Segundos</string>
     <string name="seven_Seg">7 Segundos</string>
-    <string name="Seg_Actual">Duracion de splash: </string>
-    <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
     <string name="player_header">Datos del Jugador</string>
@@ -28,5 +26,12 @@
     <string name="confirmar_check">¿Seguro?</string>
 
     <string name="default_name">Usuario</string>
+
+    <string name="winsound">Reproducir sonido de victoria</string>
+    <string name="losesound">Reproducir sonido de derrota</string>
+    <string name="backgroundMusic">Reproducir musica de fondo</string>
+    <string name="moreSpeed">Mas rapido</string>
+    <string name="lessSpeed">Mas lento</string>
+    <string name="testMedia">Zona de prueba de sonido</string>
 
 </resources>
