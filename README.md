@@ -12,6 +12,6 @@ Link del [video](https://youtu.be/VXJTYU7zizc)
 Link de la [APK](https://drive.google.com/file/d/1t-mTbZ1peVZ9zNZvus-0ozrupJoWWWz1/view?usp=sharing)
 
 ### Links de la version
-Link del [video]()
+Link del [video](https://youtu.be/gms_oHANFLw)
 
-Link de la [APK]()
+Link de la [APK](https://mega.nz/file/4vt3QAAA#dYhyeBISZXTrMZJfNi2A7ni2ERYjPTYu8ChS6Z83jB4)
