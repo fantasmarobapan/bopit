@@ -23,5 +23,10 @@ class TestZoneActivity : AppCompatActivity() {
             val intenttouchevent = Intent(this, TouchEventActivity::class.java)
             startActivity(intenttouchevent)
         }
+
+        buttonshake.setOnClickListener {
+            val intentshake = Intent(this, TestShakeActivity::class.java)
+            startActivity(intentshake)
+        }
     }
 }
