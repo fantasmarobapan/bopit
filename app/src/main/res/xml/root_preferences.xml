@@ -8,11 +8,25 @@
             app:key="playername"
             app:title="@string/player_name"
             app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="0"
+            android:key="player_point"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:title="@string/Puntuacion_player"
+            app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/perso_header">
 
+        <ListPreference
+            android:defaultValue="10"
+            android:entries="@array/Umbral_Entries"
+            android:entryValues="@array/Umbra_Values"
+            android:key="Umbral_duracion"
+            android:title="@string/umbra_tittle"
+            app:useSimpleSummaryProvider="true" />
         <ListPreference
             android:title="@string/theme_tittle"
             app:defaultValue="2"

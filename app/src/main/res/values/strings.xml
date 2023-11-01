@@ -20,12 +20,14 @@
 
     <!-- Sync Preferences -->
     <string name="theme_tittle">Seleccion el tema</string>
+    <string name="umbra_tittle">Umbral de vibrar</string>
 
     <!-- Mensajes por defecto -->
     <string name="pregunta_check">¿Volver a valores por defecto?</string>
     <string name="confirmar_check">¿Seguro?</string>
 
     <string name="default_name">Usuario</string>
+    <string name="Puntuacion_player">Puntuacion</string>
 
     <string name="winsound">Reproducir sonido de victoria</string>
     <string name="losesound">Reproducir sonido de derrota</string>
@@ -34,5 +36,10 @@
     <string name="lessSpeed">Mas lento</string>
     <string name="testMedia">Zona de prueba de sonido</string>
     <string name="testTouchEvent">Zona de prueba de TouchEvent</string>
+    <string name="testShake">Zona de prueba de agitar</string>
+
+    <string name="testZone">Zona de pruebas</string>
+    <string name="playButton">Jugar</string>
+    <string name="title_activity_test_shake">TestShakeActivity</string>
 
 </resources>

@@ -1,10 +1,12 @@
 package cl.afernandez.bopit
 
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.preference.EditTextPreference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 
@@ -31,6 +33,7 @@ class SettingsActivity : AppCompatActivity() {
         {
             fondoSetting.background = ContextCompat.getDrawable(this, R.drawable.gradient2)
         }
+
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {

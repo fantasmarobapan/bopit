@@ -10,4 +10,16 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="Umbral_Entries">
+        <item>Umbral de 10</item>
+        <item>Umbral de 20</item>
+        <item>Umbral de 30</item>
+    </string-array>
+
+    <string-array name="Umbra_Values">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
+
 </resources>
