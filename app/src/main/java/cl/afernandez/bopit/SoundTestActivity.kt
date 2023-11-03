@@ -8,16 +8,17 @@ import android.widget.Button
 
 class SoundTestActivity : AppCompatActivity() {
     private lateinit var mediaPlayerWin: MediaPlayer
-    private lateinit var mediaPlayerLose: MediaPlayer
     private lateinit var mediaPlayerMusic: MediaPlayer
+    private lateinit var mediaPlayerLose: MediaPlayer
     private var playbackParams: PlaybackParams? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sound_test)
 
         mediaPlayerWin = MediaPlayer.create(this, R.raw.winsound)
-        mediaPlayerLose = MediaPlayer.create(this, R.raw.errorsound)
         mediaPlayerMusic = MediaPlayer.create(this, R.raw.backgroundmusic)
+        mediaPlayerLose = MediaPlayer.create(this, R.raw.errorsound)
+
         playbackParams = mediaPlayerMusic.playbackParams
 
         val winButton = findViewById<Button>(R.id.winbutton)

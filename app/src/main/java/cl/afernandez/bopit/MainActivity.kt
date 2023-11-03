@@ -13,7 +13,6 @@ import androidx.preference.PreferenceManager
 class MainActivity : AppCompatActivity() {
 
     private lateinit var puntuacion: TextView
-    var testeo = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,13 +22,6 @@ class MainActivity : AppCompatActivity() {
         val ButtonTestZone = findViewById<Button>(R.id.testzonebutton)
         val ButtonPlay = findViewById<Button>(R.id.playbutton)
 
-        puntuacion = findViewById(R.id.testpoint)
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val puntaje = sharedPreferences.getString("player_point", "10")
-        testeo = Integer.parseInt(puntaje) + 2
-        puntuacion.setText(testeo.toString())
-
-        puntuacion.setText(puntaje.toString())
 
         ButtonOkAbout.setOnClickListener {
             val intentAbout = Intent(this, AboutActivity::class.java)
@@ -38,10 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         ButtonOkSetting.setOnClickListener {
             val intentSetting = Intent(this, SettingsActivity::class.java)
-            val editor = sharedPreferences.edit()
-
-            editor.putString("player_point", testeo.toString())
-            editor.apply()
             startActivity(intentSetting)
         }
 
@@ -59,11 +47,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        puntuacion = findViewById(R.id.testpoint)
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val puntaje = sharedPreferences.getString("player_point", "10")
-        testeo = Integer.parseInt(puntaje) + 2
-        puntuacion.setText(testeo.toString())
     }
 
     override fun onPause() {
