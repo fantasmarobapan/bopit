@@ -26,6 +26,7 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
     var puntajePlayer = 0
     var record = 0
     var obtenerPuntaje = true
+    var supero = false
     private var sensorManager: SensorManager? = null
     private var accelerometer: Sensor? = null
 
@@ -87,8 +88,10 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         puntajePlayer = puntajePlayer + 1
         puntuacion.text = puntajePlayer.toString()
         obtenerPuntaje = false
+        textinstruccion.text = "Correcto"
         if (puntajePlayer > record)
         {
+            supero = true
             record = puntajePlayer
             textviewRecord.text = record.toString()
         }
@@ -98,17 +101,22 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         gestureDetector.onTouchEvent(event)
-        return super.onTouchEvent(event)
+        return true
     }
 
     inner class MyGestureListener : GestureDetector.SimpleOnGestureListener() {
+        private val handler = Handler(Looper.getMainLooper())
+        private val delayMillis = 250
         override fun onDown(e: MotionEvent): Boolean {
-            val currentInstruction = textinstruccion.text.toString()
-            if (currentInstruction == "Pulsa la pantalla" && obtenerPuntaje) {
-                correcto()
-            }else if (currentInstruction != "Pulsa la pantalla" && obtenerPuntaje) {
-                errorSound()
-            }
+            handler.postDelayed({
+                val currentInstruction = textinstruccion.text.toString()
+                if (currentInstruction == "Pulsa la pantalla" && obtenerPuntaje) {
+                    correcto()
+                }else if (currentInstruction != "Pulsa la pantalla" && obtenerPuntaje) {
+                    errorSound()
+                }
+            }, delayMillis.toLong())
+
             return true
         }
 
@@ -116,10 +124,11 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
             e1: MotionEvent, e2: MotionEvent,
             velocityX: Float, velocityY: Float
         ): Boolean {
+            handler.removeCallbacksAndMessages(null)
             val currentInstruction = textinstruccion.text.toString()
             if (currentInstruction == "Desliza" && obtenerPuntaje) {
                 correcto()
-            }else if (currentInstruction != "Deliza" && obtenerPuntaje) {
+            }else if (currentInstruction != "Desliza" && obtenerPuntaje) {
                 errorSound()
             }
             return true
@@ -135,6 +144,11 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         val editor = sharedPreferences.edit()
         editor.putString("player_point", record.toString())
         editor.apply()
+
+        if (supero)
+        {
+
+        }
 
         if (mediaPlayerMusic.isPlaying){
             mediaPlayerMusic.stop()
