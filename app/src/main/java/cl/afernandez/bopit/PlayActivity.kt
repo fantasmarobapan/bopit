@@ -1,6 +1,7 @@
 package cl.afernandez.bopit
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -23,16 +24,17 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var textviewRecord: TextView
     private lateinit var gestureDetector: GestureDetector
     private val instructions = listOf("Pulsa la pantalla", "Desliza", "Agita")
-    var puntajePlayer = 0
-    var record = 0
-    var obtenerPuntaje = true
-    var supero = false
+    private var puntajePlayer = 0
+    private var record = 0
+    private var obtenerPuntaje = true
+    private var supero = false
+    private var tiempoLimiteJuego = 3000L
+
     private var sensorManager: SensorManager? = null
     private var accelerometer: Sensor? = null
 
-    //private lateinit var mediaPlayerWin: MediaPlayer
     private lateinit var mediaPlayerMusic: MediaPlayer
-    //private lateinit var mediaPlayerLose: MediaPlayer
+    private lateinit var handler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,11 +44,10 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         puntuacion = findViewById(R.id.puntuacion)
         textviewRecord = findViewById(R.id.textrecord)
         gestureDetector = GestureDetector(this, MyGestureListener())
+        handler = Handler(Looper.getMainLooper())
 
 
         mediaPlayerMusic = MediaPlayer.create(this, R.raw.backgroundmusic)
-
-
         mediaPlayerMusic.start()
         mediaPlayerMusic.isLooping = true
 
@@ -63,6 +64,10 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         changeInstruction()
+
+        handler.postDelayed({
+            errorSound()
+        }, tiempoLimiteJuego)
     }
 
     private fun changeInstruction() {
@@ -70,16 +75,31 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         textinstruccion.text = instructions[randomIndex]
     }
 
-    private fun scheduleInstructionChange() {
-        Handler(Looper.getMainLooper()).postDelayed({
+    private fun cancelarHandler() {
+        handler.removeCallbacksAndMessages(null)
+    }
+
+    private fun programarSiguienteCambio() {
+        handler.postDelayed({
             changeInstruction()
             obtenerPuntaje = true
-        }, 3000)
+        }, 1000)
+
+        // Iniciar el temporizador
+        handler.postDelayed({
+            errorSound()
+        }, tiempoLimiteJuego + 1000)
     }
 
     private fun errorSound() {
+        cancelarHandler()
         val mediaPlayerLose = MediaPlayer.create(this, R.raw.errorsound)
         mediaPlayerLose.start()
+
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+
+        finish()
     }
 
     private fun correcto() {
@@ -89,14 +109,17 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         puntuacion.text = puntajePlayer.toString()
         obtenerPuntaje = false
         textinstruccion.text = "Correcto"
-        if (puntajePlayer > record)
-        {
+        if (puntajePlayer > record) {
             supero = true
             record = puntajePlayer
             textviewRecord.text = record.toString()
         }
 
-        scheduleInstructionChange()
+        // Cancelar el Handler actual antes de programar uno nuevo
+        cancelarHandler()
+
+        // Programar el próximo cambio de instrucción y temporizador
+        programarSiguienteCambio()
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -106,7 +129,8 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
 
     inner class MyGestureListener : GestureDetector.SimpleOnGestureListener() {
         private val handler = Handler(Looper.getMainLooper())
-        private val delayMillis = 250
+        private val delayMillis = 300
+
         override fun onDown(e: MotionEvent): Boolean {
             handler.postDelayed({
                 val currentInstruction = textinstruccion.text.toString()
@@ -133,36 +157,6 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
             }
             return true
         }
-
-    }
-
-    override fun onPause() {
-        super.onPause()
-        sensorManager?.unregisterListener(this)
-
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val editor = sharedPreferences.edit()
-        editor.putString("player_point", record.toString())
-        editor.apply()
-
-        if (supero)
-        {
-
-        }
-
-        if (mediaPlayerMusic.isPlaying){
-            mediaPlayerMusic.stop()
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mediaPlayerMusic.release()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        sensorManager?.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
     override fun onSensorChanged(event: SensorEvent) {
@@ -190,5 +184,37 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
 
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager?.unregisterListener(this)
+
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor = sharedPreferences.edit()
+        editor.putString("player_point", record.toString())
+        editor.apply()
+
+        if (supero)
+        {
+
+        }
+
+        if (mediaPlayerMusic.isPlaying){
+            mediaPlayerMusic.stop()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (mediaPlayerMusic.isPlaying) {
+            mediaPlayerMusic.stop()
+        }
+        mediaPlayerMusic.release()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sensorManager?.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
     }
 }
