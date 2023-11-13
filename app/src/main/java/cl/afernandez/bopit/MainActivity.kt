@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 
 
@@ -21,6 +23,17 @@ class MainActivity : AppCompatActivity() {
         val ButtonOkSetting = findViewById<Button>(R.id.settingbutton)
         val ButtonTestZone = findViewById<Button>(R.id.testzonebutton)
         val ButtonPlay = findViewById<Button>(R.id.playbutton)
+
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val value = sharedPreferences.getString("Theme_color", "1")
+        val fondoSplash = findViewById<ConstraintLayout>(R.id.Main_activity)
+        if(value.equals("1"))
+        {
+            fondoSplash.background = ContextCompat.getDrawable(this, R.drawable.gradient1)
+        }else if (value.equals("2"))
+        {
+            fondoSplash.background = ContextCompat.getDrawable(this, R.drawable.gradient2)
+        }
 
 
         ButtonOkAbout.setOnClickListener {

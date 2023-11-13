@@ -37,7 +37,7 @@
         <ListPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:defaultValue="7000L"
+            android:defaultValue="7000"
             android:title="@string/Difficulty_tittle"
             app:entries="@array/Difficulty_entries"
             app:entryValues="@array/Difficulty_values"

@@ -29,9 +29,9 @@
     </string-array>
 
     <string-array name="Difficulty_values">
-        <item>7000L</item>
-        <item>5000L</item>
-        <item>3000L</item>
+        <item>7000</item>
+        <item>5000</item>
+        <item>3000</item>
     </string-array>
 
 </resources>

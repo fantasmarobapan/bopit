@@ -16,7 +16,6 @@ class SplashActivity : AppCompatActivity() {
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val value = sharedPreferences.getString("Theme_color", "1")
-
         val fondoSplash = findViewById<ConstraintLayout>(R.id.Splash_activity)
         if(value.equals("1"))
         {

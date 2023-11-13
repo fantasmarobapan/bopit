@@ -15,7 +15,11 @@ import android.os.Handler
 import android.os.Looper
 import android.view.GestureDetector
 import android.view.MotionEvent
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 
 class PlayActivity : AppCompatActivity(), SensorEventListener {
@@ -28,7 +32,7 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
     private var record = 0
     private var obtenerPuntaje = true
     private var supero = false
-    private var tiempoLimiteJuego = 3000L
+    private var tiempoLimiteJuego = 0L
     private var aumentoVelocidadMusica = 1.00f
     private var reduccionTiempoLimite = 200
     private var tiempoLimiteReduccion = 5
@@ -44,6 +48,17 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play)
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val value = sharedPreferences.getString("Theme_color", "1")
+        val fondoSetting = findViewById<ConstraintLayout>(R.id.Play_Background)
+        if(value.equals("1"))
+        {
+            fondoSetting.background = ContextCompat.getDrawable(this, R.drawable.gradient1)
+        }else if (value.equals("2"))
+        {
+            fondoSetting.background = ContextCompat.getDrawable(this, R.drawable.gradient2)
+        }
+
         textinstruccion = findViewById(R.id.instruccion)
         puntuacion = findViewById(R.id.puntuacion)
         textviewRecord = findViewById(R.id.textrecord)
@@ -55,8 +70,9 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         musicaFondo.start()
         musicaFondo.isLooping = true
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val puntajeObtener = sharedPreferences.getString("player_point", "0")
+        var difficultyselect = sharedPreferences.getString("Difficulty_select", "7000")
+        tiempoLimiteJuego = difficultyselect?.toLong() ?: 7000L
         record = Integer.parseInt(puntajeObtener)
 
         puntuacion.text = puntajePlayer.toString()
@@ -201,6 +217,7 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onPause() {
         super.onPause()
+        cancelarHandler()
         sensorManager?.unregisterListener(this)
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -220,6 +237,7 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onDestroy() {
         super.onDestroy()
+        cancelarHandler()
         if (musicaFondo.isPlaying) {
             musicaFondo.stop()
         }
