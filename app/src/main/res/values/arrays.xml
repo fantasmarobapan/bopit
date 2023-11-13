@@ -21,5 +21,17 @@
         <item>13</item>
         <item>16</item>
     </string-array>
+    
+    <string-array name="Difficulty_entries">
+        <item>Facil</item>
+        <item>Intermedio</item>
+        <item>Dificil</item>
+    </string-array>
+
+    <string-array name="Difficulty_values">
+        <item>7000L</item>
+        <item>5000L</item>
+        <item>3000L</item>
+    </string-array>
 
 </resources>

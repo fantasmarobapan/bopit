@@ -8,6 +8,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.media.MediaPlayer
+import android.media.PlaybackParams
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -15,7 +16,6 @@ import android.os.Looper
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.TextView
-import android.widget.Toast
 import androidx.preference.PreferenceManager
 
 class PlayActivity : AppCompatActivity(), SensorEventListener {
@@ -29,11 +29,15 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
     private var obtenerPuntaje = true
     private var supero = false
     private var tiempoLimiteJuego = 3000L
+    private var aumentoVelocidadMusica = 1.00f
+    private var reduccionTiempoLimite = 200
+    private var tiempoLimiteReduccion = 5
+    private var tiempoExtra = 1000L
 
     private var sensorManager: SensorManager? = null
     private var accelerometer: Sensor? = null
 
-    private lateinit var mediaPlayerMusic: MediaPlayer
+    private lateinit var musicaFondo: MediaPlayer
     private lateinit var handler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,9 +51,9 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         handler = Handler(Looper.getMainLooper())
 
 
-        mediaPlayerMusic = MediaPlayer.create(this, R.raw.backgroundmusic)
-        mediaPlayerMusic.start()
-        mediaPlayerMusic.isLooping = true
+        musicaFondo = MediaPlayer.create(this, R.raw.backgroundmusic)
+        musicaFondo.start()
+        musicaFondo.isLooping = true
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val puntajeObtener = sharedPreferences.getString("player_point", "0")
@@ -83,12 +87,12 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         handler.postDelayed({
             changeInstruction()
             obtenerPuntaje = true
-        }, 1000)
+        }, tiempoExtra)
 
         // Iniciar el temporizador
         handler.postDelayed({
             errorSound()
-        }, tiempoLimiteJuego + 1000)
+        }, tiempoLimiteJuego + tiempoExtra)
     }
 
     private fun errorSound() {
@@ -120,6 +124,15 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
 
         // Programar el próximo cambio de instrucción y temporizador
         programarSiguienteCambio()
+
+        if (puntajePlayer % tiempoLimiteReduccion == 0 && puntajePlayer > 0) {
+            tiempoLimiteJuego -= reduccionTiempoLimite
+            aumentoVelocidadMusica += 0.05f
+
+            val params = PlaybackParams()
+            params.speed = aumentoVelocidadMusica
+            musicaFondo.playbackParams = params
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -200,17 +213,17 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
 
         }
 
-        if (mediaPlayerMusic.isPlaying){
-            mediaPlayerMusic.stop()
+        if (musicaFondo.isPlaying){
+            musicaFondo.stop()
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        if (mediaPlayerMusic.isPlaying) {
-            mediaPlayerMusic.stop()
+        if (musicaFondo.isPlaying) {
+            musicaFondo.stop()
         }
-        mediaPlayerMusic.release()
+        musicaFondo.release()
     }
 
     override fun onResume() {

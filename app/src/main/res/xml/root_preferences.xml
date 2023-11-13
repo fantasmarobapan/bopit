@@ -13,7 +13,7 @@
             android:key="player_point"
             android:selectAllOnFocus="false"
             android:singleLine="false"
-            android:title="@string/Puntuacion_player"
+            android:title="@string/point_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
@@ -29,27 +29,21 @@
             app:useSimpleSummaryProvider="true" />
         <ListPreference
             android:title="@string/theme_tittle"
-            app:defaultValue="2"
+            app:defaultValue="1"
             app:entries="@array/Theme_entries"
             app:entryValues="@array/Theme_Value"
             app:key="Theme_color"
             app:useSimpleSummaryProvider="true" />
-
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/default_header">
-
-        <CheckBoxPreference
+        <ListPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:defaultValue="false"
-            android:title="@string/pregunta_check"
-            app:key="confirm" />
-        <SwitchPreference
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:defaultValue="false"
-            android:title="@string/confirmar_check"
-            app:dependency="confirm" />
+            android:defaultValue="7000L"
+            android:title="@string/Difficulty_tittle"
+            app:entries="@array/Difficulty_entries"
+            app:entryValues="@array/Difficulty_values"
+            app:key="Difficulty_select"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

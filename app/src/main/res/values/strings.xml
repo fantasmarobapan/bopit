@@ -5,30 +5,25 @@
     <string name="button_config">Configuracion</string>
     <string name="button_home">Regresar al menu principal</string>
     <string name="splash_name">Adolfo Fernandez Padilla</string>
-    <string name="two_Seg">2 Segundos</string>
-    <string name="five_Seg">5 Segundos</string>
-    <string name="seven_Seg">7 Segundos</string>
+    <string name="playButton">Jugar</string>
 
-    <!-- Preference Titles -->
+    <!-- titulos de las cabeceras -->
     <string name="player_header">Datos del Jugador</string>
     <string name="perso_header">Personalizacion del juego</string>
-    <string name="default_header">Administracion general</string>
 
-    <!-- Messages Preferences -->
+    <!-- personalizacion del player -->
     <string name="player_name">Nombre del jugador</string>
     <string name="point_title">Puntaje mas alto</string>
 
-    <!-- Sync Preferences -->
+    <!-- personalizacion del juegoo -->
     <string name="theme_tittle">Seleccion el tema</string>
     <string name="umbra_tittle">Umbral de vibrar</string>
+    <string name="Difficulty_tittle">Selector de dificultad</string>
 
-    <!-- Mensajes por defecto -->
-    <string name="pregunta_check">¿Volver a valores por defecto?</string>
-    <string name="confirmar_check">¿Seguro?</string>
-
+    <!-- nombre por defecto del player -->
     <string name="default_name">Usuario</string>
-    <string name="Puntuacion_player">Puntuacion</string>
 
+    <!-- Para borrar -->
     <string name="winsound">Reproducir sonido de victoria</string>
     <string name="losesound">Reproducir sonido de derrota</string>
     <string name="backgroundMusic">Reproducir musica de fondo</string>
@@ -39,7 +34,6 @@
     <string name="testShake">Zona de prueba de agitar</string>
 
     <string name="testZone">Zona de pruebas</string>
-    <string name="playButton">Jugar</string>
     <string name="title_activity_test_shake">TestShakeActivity</string>
 
 </resources>
