@@ -17,19 +17,7 @@
         android:theme="@style/Theme.BopIt"
         tools:targetApi="31">
         <activity
-            android:name=".TestShakeActivity"
-            android:exported="false" />
-        <activity
             android:name=".PlayActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TestZoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TouchEventActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SoundTestActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"

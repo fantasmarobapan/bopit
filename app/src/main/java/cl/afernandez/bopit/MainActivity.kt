@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         val ButtonOkAbout = findViewById<Button>(R.id.aboutbutton)
         val ButtonOkSetting = findViewById<Button>(R.id.settingbutton)
-        val ButtonTestZone = findViewById<Button>(R.id.testzonebutton)
         val ButtonPlay = findViewById<Button>(R.id.playbutton)
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -44,11 +43,6 @@ class MainActivity : AppCompatActivity() {
         ButtonOkSetting.setOnClickListener {
             val intentSetting = Intent(this, SettingsActivity::class.java)
             startActivity(intentSetting)
-        }
-
-        ButtonTestZone.setOnClickListener {
-            val intentTestZone = Intent(this, TestZoneActivity::class.java)
-            startActivity(intentTestZone)
         }
 
         ButtonPlay.setOnClickListener {

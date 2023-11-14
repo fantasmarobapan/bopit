@@ -23,17 +23,5 @@
     <!-- nombre por defecto del player -->
     <string name="default_name">Usuario</string>
 
-    <!-- Para borrar -->
-    <string name="winsound">Reproducir sonido de victoria</string>
-    <string name="losesound">Reproducir sonido de derrota</string>
-    <string name="backgroundMusic">Reproducir musica de fondo</string>
-    <string name="moreSpeed">Mas rapido</string>
-    <string name="lessSpeed">Mas lento</string>
-    <string name="testMedia">Zona de prueba de sonido</string>
-    <string name="testTouchEvent">Zona de prueba de TouchEvent</string>
-    <string name="testShake">Zona de prueba de agitar</string>
-
-    <string name="testZone">Zona de pruebas</string>
-    <string name="title_activity_test_shake">TestShakeActivity</string>
 
 </resources>

@@ -225,11 +225,6 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         editor.putString("player_point", record.toString())
         editor.apply()
 
-        if (supero)
-        {
-
-        }
-
         if (musicaFondo.isPlaying){
             musicaFondo.stop()
         }
