@@ -23,5 +23,13 @@
     <!-- nombre por defecto del player -->
     <string name="default_name">Usuario</string>
 
+    <!-- Juego texto -->
+    <string name="puntuacion_text">Puntaje</string>
+    <string name="record_text">Puntaje más alto</string>
+
+    <!-- Fin de juego -->
+    <string name="finjuego_text">Juego acabado</string>
+    <string name="juegoNuevo_text">Jugar de nuevo</string>
+
 
 </resources>

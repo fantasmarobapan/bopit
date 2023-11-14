@@ -55,4 +55,8 @@ class SettingsActivity : AppCompatActivity() {
             fondoSetting.background = ContextCompat.getDrawable(this, R.drawable.gradient2)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+    }
 }

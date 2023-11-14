@@ -116,7 +116,9 @@ class PlayActivity : AppCompatActivity(), SensorEventListener {
         val mediaPlayerLose = MediaPlayer.create(this, R.raw.errorsound)
         mediaPlayerLose.start()
 
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, FinishGameActivity::class.java)
+        intent.putExtra(FinishGameActivity.EXTRA_SUPERO, supero)
+        intent.putExtra(FinishGameActivity.EXTRA_PUNTUACION, puntajePlayer)
         startActivity(intent)
 
         finish()

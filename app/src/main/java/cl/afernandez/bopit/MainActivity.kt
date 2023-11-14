@@ -23,17 +23,6 @@ class MainActivity : AppCompatActivity() {
         val ButtonOkSetting = findViewById<Button>(R.id.settingbutton)
         val ButtonPlay = findViewById<Button>(R.id.playbutton)
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val value = sharedPreferences.getString("Theme_color", "1")
-        val fondoSplash = findViewById<ConstraintLayout>(R.id.Main_activity)
-        if(value.equals("1"))
-        {
-            fondoSplash.background = ContextCompat.getDrawable(this, R.drawable.gradient1)
-        }else if (value.equals("2"))
-        {
-            fondoSplash.background = ContextCompat.getDrawable(this, R.drawable.gradient2)
-        }
-
 
         ButtonOkAbout.setOnClickListener {
             val intentAbout = Intent(this, AboutActivity::class.java)
@@ -54,6 +43,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val value = sharedPreferences.getString("Theme_color", "1")
+        val fondoSplash = findViewById<ConstraintLayout>(R.id.Main_activity)
+        if(value.equals("1"))
+        {
+            fondoSplash.background = ContextCompat.getDrawable(this, R.drawable.gradient1)
+        }else if (value.equals("2"))
+        {
+            fondoSplash.background = ContextCompat.getDrawable(this, R.drawable.gradient2)
+        }
     }
 
     override fun onPause() {
