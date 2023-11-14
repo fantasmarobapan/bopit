@@ -12,6 +12,9 @@ Adicionalmente se le ha implementado 2 activities para poner a prueba la utiliza
 ## Tercera Version
 En la tercera version de la aplicacion se implemento el funcionamiento del acelerometro para detectar si el jugador esta agitando el telefono y se realizo un pequeño acercamiento a lo que deberia de ser el juego
 
+## Cuarta Version y final
+En esta version se completo el ciclo de juego, se solucionaron errores presentados en la version anterior, como tambien eliminar la seccion dedicada a poner a prueba los sensores
+
 ## Links
 ### Link de la primera version
 Link del [video](https://youtu.be/VXJTYU7zizc)
@@ -28,3 +31,8 @@ Link de la [APK](https://mega.nz/file/4vt3QAAA#dYhyeBISZXTrMZJfNi2A7ni2ERYjPTYu8
 Link del [video](https://youtu.be/0WmTxnDqT4w)
 
 Link para descargar la [APK](https://mega.nz/file/wylmASAQ#hYdm9-I_fXDRGu7lAVW4NmAMPVTEsB3gDvQMJHFoX1I)
+
+### Links referentes a la cuarta version fina
+Link del [video](https://youtu.be/8FPQz75movk)
+
+Link para descargar la [APK](https://mega.nz/file/RiMj2D6C#xEcSYHKWB2YtNc7m6qYiCpTcmLq07mMzz_ua5mQUqaY)
